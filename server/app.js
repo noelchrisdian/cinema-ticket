@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import cors from 'cors';
 import express, { json, urlencoded } from 'express';
 import { connectDB } from './utils/db.js';
 import { errorHandler } from './middlewares/errorHandler.js';
@@ -18,6 +19,7 @@ connectDB();
 app
     .use(json())
     .use(urlencoded({ extended: true }))
+    .use(cors())
 
 app.get('/', (req, res) => {
     res.send('Welcome to Cinema Ticket API');
