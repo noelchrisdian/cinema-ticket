@@ -1,3 +1,4 @@
+import { AdminCustomer } from "@/pages/admin/customers/customer";
 import { AdminGenre } from "@/pages/admin/genres/genres";
 import { AdminGenreForm } from "@/pages/admin/genres/form";
 import { AdminLayout } from "@/components/admin/layout";
@@ -7,6 +8,13 @@ import { AdminMovieForm } from "@/pages/admin/movies/form";
 import { AdminOverview } from "@/pages/admin/overview";
 import { AdminTheater } from "@/pages/admin/theaters/theaters";
 import { AdminTheaterForm } from "@/pages/admin/theaters/form";
+import { AdminTransaction } from "@/pages/admin/transactions/transactions";
+import { AdminWallet } from "@/pages/admin/wallets/wallets";
+import {
+    getCustomers,
+    getTransactions,
+    getWalletTransactions
+} from "@/services/customers/service";
 import { getGenre, getGenres } from "@/services/genres/service";
 import { getMovie, getMovies } from "@/services/movies/service";
 import { getSession } from "@/lib/utils";
@@ -118,6 +126,30 @@ export const router: RouteObject[] = [
                     }
                 },
                 element: <AdminMovieForm />
+            },
+            {
+                path: '/admin/customers',
+                loader: async () => {
+                    const customers = await getCustomers();
+                    return customers.data;
+                },
+                element: <AdminCustomer />
+            },
+            {
+                path: '/admin/transactions',
+                loader: async () => {
+                    const transactions = await getTransactions();
+                    return transactions.data;
+                },
+                element: <AdminTransaction />
+            },
+            {
+                path: '/admin/wallet-transactions',
+                loader: async () => {
+                    const wallet = await getWalletTransactions();
+                    return wallet.data;
+                },
+                element: <AdminWallet />
             }
         ]
     },

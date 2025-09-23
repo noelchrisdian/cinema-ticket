@@ -14,5 +14,4 @@ export interface MovieResponse {
 	createdAt: string;
 	updatedAt: string;
 	thumbnailURL: string;
-	id: string;
 }

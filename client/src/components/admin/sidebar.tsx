@@ -1,10 +1,13 @@
 import {
 	Bell,
+	CircleDollarSign,
 	Clapperboard,
 	Home,
 	Package,
-	Theater,
+	SquareUser,
+	TvMinimalPlay,
 	UserStar,
+	Wallet,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -14,7 +17,9 @@ export const Sidebar = () => {
 		<div className="hidden border-r bg-muted/40 md:block">
 			<div className="flex h-full max-h-screen flex-col gap-2">
 				<div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-					<Link to="/admin" className="flex items-center gap-2 font-semibold">
+					<Link
+						to="/admin"
+						className="flex items-center gap-2 font-semibold">
 						<UserStar className="h-6 w-6" />
 						<span className="">CMS Cinema</span>
 					</Link>
@@ -34,22 +39,40 @@ export const Sidebar = () => {
 							Dashboard
 						</Link>
 						<Link
+							to="/admin/customers"
+							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
+							<SquareUser className="h-4 w-4" />
+							Customers
+						</Link>
+						<Link
 							to="/admin/genres"
 							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
 							<Package className="h-4 w-4" />
 							Genres
 						</Link>
 						<Link
-							to="/admin/theaters"
-							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
-							<Theater className="h-4 w-4" />
-							Theaters
-						</Link>
-						<Link
 							to="/admin/movies"
 							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
 							<Clapperboard className="h-4 w-4" />
 							Movies
+						</Link>
+						<Link
+							to="/admin/theaters"
+							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
+							<TvMinimalPlay className="h-4 w-4" />
+							Theaters
+						</Link>
+						<Link
+							to="/admin/transactions"
+							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
+							<CircleDollarSign className="h-4 w-4" />
+							Transactions
+						</Link>
+						<Link
+							to="/admin/wallet-transactions"
+							className="flex items-center mb-1 gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
+							<Wallet className="h-4 w-4" />
+							Wallet Transactions
 						</Link>
 					</nav>
 				</div>

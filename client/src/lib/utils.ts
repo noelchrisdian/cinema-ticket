@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import secureLocalStorage from "react-secure-storage";
 import type { LoginResponse } from "@/services/auth/type";
 import { clsx, type ClassValue } from "clsx";
@@ -26,4 +27,8 @@ export const handleFormatCurrency = (value: number) => {
 		minimumFractionDigits: 0, 
 		maximumFractionDigits: 0
 	}).format(value)
+}
+
+export const handlerFormatDate = (value: Date | string, format = 'DD-MM-YY HH:mm') => {
+	return dayjs(value).format(format);
 }
