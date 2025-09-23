@@ -20,6 +20,7 @@ app
     .use(json())
     .use(urlencoded({ extended: true }))
     .use(cors())
+    .use(express.static('public'))
 
 app.get('/', (req, res) => {
     res.send('Welcome to Cinema Ticket API');

@@ -1,6 +1,6 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import type { GenreResponse } from '@/services/genres/type';
-import { ActionColumn } from './actions';
+import { ActionColumn } from '@/pages/admin/genres/actions';
 import { Badge } from '@/components/ui/badge';
 
 export const columns: ColumnDef<GenreResponse>[] = [

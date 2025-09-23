@@ -11,7 +11,7 @@ const config: Config = {
             spacing: {}
         },
 	},
-	plugins: [],
+	plugins: []
 }
 
 export default config;

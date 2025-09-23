@@ -7,6 +7,8 @@ export const cn = (...inputs: ClassValue[]) => {
 	return twMerge(clsx(inputs));
 }
 
+export const cities = ['Jakarta', 'Bandung', 'Semarang', 'Surakarta', 'Magelang', 'Yogyakarta']
+
 export const getSession = () => {
 	const session = secureLocalStorage.getItem("SESSION_KEY") as LoginResponse;
 
@@ -15,4 +17,13 @@ export const getSession = () => {
 	}
 
 	return session;
+}
+
+export const handleFormatCurrency = (value: number) => {
+	return new Intl.NumberFormat('id-ID', {
+		style: 'currency',
+		currency: 'IDR',
+		minimumFractionDigits: 0, 
+		maximumFractionDigits: 0
+	}).format(value)
 }

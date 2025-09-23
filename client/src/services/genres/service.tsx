@@ -1,6 +1,6 @@
 import z from "zod";
 import type { BaseResponse } from "@/types/response";
-import type { GenreResponse } from "./type";
+import type { GenreResponse } from "@/services/genres/type";
 import { privateInstance } from "@/lib/axios";
 
 export const genreSchema = z.object({

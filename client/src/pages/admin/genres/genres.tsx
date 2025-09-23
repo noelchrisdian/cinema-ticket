@@ -1,9 +1,9 @@
 import type { GenreResponse } from "@/services/genres/type";
+import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { columns } from "./columns";
+import { columns } from "@/pages/admin/genres/columns";
 import { DataTable } from "@/components/ui/data-table";
 import { Link, useLoaderData } from "react-router-dom";
-import { Plus } from "lucide-react";
 import { Title } from "@/components/admin/title";
 
 export const AdminGenre = () => {
