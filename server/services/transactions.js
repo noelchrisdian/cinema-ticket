@@ -8,10 +8,14 @@ import { walletModel as Wallets } from "../api/wallets/model.js";
 const getTransactions = async (req) => {
     return await Transactions
         .find({ user: req.user?.id })
-        .select('seats movie theater date status')
+        .select('seats movie theater date status total subtotal tax bookingFee')
         .populate({
             path: 'movie',
-            select: 'thumbnail title genre'
+            select: 'thumbnail title genre',
+            populate: {
+                path: 'genre',
+                select: 'name'
+            }
         })
         .populate({
             path: 'seats',
@@ -19,7 +23,7 @@ const getTransactions = async (req) => {
         })
         .populate({
             path: 'theater',
-            select: 'city'
+            select: 'name city'
         })
 }
 
@@ -27,10 +31,14 @@ const getTransaction = async (req) => {
     const { id } = req.params;
     const transaction = await Transactions
         .findOne({ _id: id })
-        .select('seats movie theater date status')
+        .select('seats movie theater date status total subtotal tax bookingFee')
         .populate({
             path: 'movie',
-            select: 'thumbnail title genre'
+            select: 'thumbnail title genre',
+            populate: {
+                path: 'genre',
+                select: 'name'
+            }
         })
         .populate({
             path: 'seats',
@@ -38,7 +46,7 @@ const getTransaction = async (req) => {
         })
         .populate({
             path: 'theater',
-            select: 'city'
+            select: 'name city'
         })
     if (!transaction) {
         throw new NotFound('Transaction not found');

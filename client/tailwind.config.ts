@@ -8,8 +8,8 @@ const config: Config = {
 	],
 	theme: {
         extend: {
-            spacing: {}
-        },
+			spacing: {}
+        }
 	},
 	plugins: []
 }

@@ -1,6 +1,7 @@
-import { Outlet } from "react-router-dom";
+import "@/shadcn.css";
 import { Header } from "@/components/admin/header";
 import { Sidebar } from "@/components/admin/sidebar";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 
 export const AdminLayout = () => {

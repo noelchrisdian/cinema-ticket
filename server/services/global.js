@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { movieModel as Movies } from "../api/movies/model.js";
 import { theaterModel as Theaters } from "../api/theaters/model.js";
 import { transactionModel as Transactions } from "../api/transactions/model.js";
@@ -5,8 +6,8 @@ import { transactionModel as Transactions } from "../api/transactions/model.js";
 const getAvailableSeats = async (req) => {
     const { movieID } = req.params;
     const { date } = req.query;
-    const transactions = await Transactions.findOne({
-        date: date?.toString().replace('+', ' '),
+    const transactions = await Transactions.find({
+        date: dayjs(date).format('YYYY-MM-DD HH:mm'),
         movie: movieID
     }).select('seats').populate({
         path: 'seats',

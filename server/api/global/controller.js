@@ -3,6 +3,7 @@ import { getAvailableSeats, getFilteredMovies } from "../../services/global.js";
 import { getGenres } from "../../services/genres.js";
 import { getMovie, getMovies } from "../../services/movies.js";
 import { successResponse } from "../../utils/helper.js";
+import { getTheaters } from "../../services/theaters.js";
 
 const getSeats = async (req, res, next) => {
     try {
@@ -90,10 +91,24 @@ const indexMovies = async (req, res, next) => {
     }
 }
 
+const indexTheaters = async (req, res, next) => {
+    try {
+        const theaters = await getTheaters();
+        successResponse(
+            res,
+            theaters,
+            'Theaters fetched successfully'
+        )
+    } catch (error) {
+        next(error);
+    }
+}
+
 export {
     getSeats,
     filterMovie,
     findMovie,
     indexGenres,
-    indexMovies
+    indexMovies,
+    indexTheaters
 }
